@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewpoint' content='width=device-width, initial-scale=1'>
+        <title>Simple Demo</title>
+        <script src="https://fb.me/react-0.14.3.js"></script>
+        <script src="https://fb.me/react-dom-0.14.3.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js'></script>
+    </head>
+    <body>
+        <div id='example'></div>
+        <div id='example2'></div>
+
+        <script type='text/babel'>
+
+            var Bacon = React.createClass({
+                render: function(){
+                    return(<h3>This is a simple component</h3>);
+                }
+
+            });
+
+            var Seaweed = React.createClass({
+                render: function(){
+                    return(
+                        <div>
+                            <h2>Bacon is good </h2>
+                            <p>I ate some today. I should know</p>
+                            </div>
+                    );
+                }
+            });
+
+            var blue = <h1> Green is Good</h1>
+            ReactDOM.render(<div>
+                <Seaweed />
+                <Seaweed />
+                <Seaweed />
+                </div>, document.getElementById('example2'));
+            ReactDOM.render(<Bacon />, document.getElementById('example'));
+        </script>
+    </body>
+</html>

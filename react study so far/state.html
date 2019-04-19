@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewpoint' content='width=device-width, initial-scale=1'>
+        <title>Simple Demo</title>
+        <script src="https://fb.me/react-0.14.3.js"></script>
+        <script src="https://fb.me/react-dom-0.14.3.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js'></script>
+    </head>
+
+    <!--The difference between state and properties or props is that state value can change and props do not
+    Props are useful when stating the name of something i guess and state is good to make values dynamic.
+    Each of them have their own uses-->
+    <body>
+        <div id='example'></div>
+
+        <script type='text/babel'>
+            var Checkbox = React.createClass({
+                getInitialState: function(){
+                    return{checked: true}
+                },
+                handlecheck: function(){
+                    this.setState({checked: !this.state.checked});
+                },
+                render: function(){
+                    var msg;
+                    if (this.state.checked){
+                        msg = 'checked'
+                    }else{
+                        msg = 'unchecked'
+                    }
+                    return(
+                        <div>
+                            <input defaultChecked={this.state.checked} onChange={this.handlecheck} type='checkbox'/>
+                            <h3>Checkbox is {msg}</h3>
+                        </div>
+                    );
+                }
+            });
+
+            ReactDOM.render( <Checkbox />, document.getElementById('example'));
+        </script>
+    </body>
+</html>

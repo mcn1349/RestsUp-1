@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewpoint' content='width=device-width, initial-scale=1'>
+        <title>Simple Demo</title>
+        <script src="https://fb.me/react-0.14.3.js"></script>
+        <script src="https://fb.me/react-dom-0.14.3.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js'></script>
+    </head>
+    <body>
+        <div id='example'></div>
+
+        <script type='text/babel'>
+            var Movie = React.createClass({
+                render: function(){
+                    return(
+                        <div>
+                            <h1>{this.props.title}</h1>
+                            <h2>{this.props.genre}</h2>
+                        </div>
+                    );
+                }
+                    
+            });
+            ReactDOM.render(
+                <div>
+                    <Movie title='Dragonball super Broly' genre='Anime/Shonen'/>
+                    <Movie title='Yugioh Darkside of Dimension' genre='Anime/Shonen'/>
+                    <Movie title='One Piece' genre='Anime/Shonen'/>
+                </div>, document.getElementById('example'));
+        </script>
+    </body>
+</html>
