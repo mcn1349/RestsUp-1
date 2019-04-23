@@ -35,11 +35,12 @@
                 },
                 save: function(){
                     var val = this.refs.newText.value;
-                    this.refs.newText.defaultValue = val;
+                    this.props.updatedCommentText(val, this.props.index);
                     this.setState({editing: false});
                 },
                 remove: function(){
                     console.log('remove comment');
+                    this.props.removeCommentText(this.props.index);
                 },
                 renderNormal: function(){
                     return(
@@ -80,20 +81,30 @@
                removeComment: function(newText, i){
                     console.log('Removing comment: ' + i);
                     var arr = this.state.comments;
-                    arr[i] = newText;
+                    arr.splice(i, 1);
                     this.setState({comments: arr});
                },
                updateComment: function(i){
                     console.log('Updating Comment: ' + i);
+                    var arr = this.state.comments;
+                    arr[i] = newText;
+                    this.setState({comments: arr});
 
                },
                eachComment: function(text, i){
-                    return (<Comment key={i} index={i}>{text}</Comment>);
+                    return (<Comment key={i} index={i} updatedCommentText={this.updateComment} removeCommentText={this.removeComment}>{text}</Comment>);
                },
                render: function(){
-                   return(<div className='board'>{this.state.comments.map(this.eachComment)}</div>);
+                   return(
+                    <div className='board'>
+                        {this.state.comments.map(this.eachComment)}
+                    </div>
+                   );
                }
             });
+
+
+
             ReactDOM.render(<Board /> , document.getElementById('example'));
         </script>
     </body>
