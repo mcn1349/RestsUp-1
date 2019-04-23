@@ -2,7 +2,9 @@
 <h4><strong>The project will start soon</strong></h4>
 <p>Planning on design atm</p>
 
-The app is built in ReactJS and the YELP fusion API will be used to allow customers to search for popular restaurants around. <br/>
+The app uses the React and redux library and the YELP fusion API will be used to allow customers to search for popular restaurants around.
+Other API will soon be determined.
+<br/>
 This projects will be developed by 
 <ul>
   <li><a href="https://github.com/NickIsHere">Nick Constantine</a></li>
