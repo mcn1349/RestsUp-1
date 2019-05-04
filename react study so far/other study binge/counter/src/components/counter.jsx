@@ -26,6 +26,17 @@ class Counter extends Component {
       </ul>
     );
   }
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
+  //Doing event handling
+  handleIncrement = product => {
+    console.log(product);
+    //You must use setstate to change the state value
+    this.setState({ count: this.state.count + 1 });
+    console.log("Increment Clicked", this);
+  };
   render() {
     //You can highlight some methods and refractor it with ctrl+shift+r in vsstudio
     let classes = this.getBadgeClasses();
@@ -39,7 +50,12 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
         {/* it is optional to use style like this as well <span style={{fontSize: 15}}></span> */}
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={() => this.handleIncrement(this.state.count)}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
         {/* Use the map method to use as a loop to get a list. Must include key value */}
         <ul>
           {this.state.tags.map(tag => (
