@@ -5,13 +5,27 @@ class Counter extends Component {
   state = {
     count: 0,
     imageUrl:
-      "https://cdn-images-1.medium.com/max/1200/1*y6C4nSvy2Woe0m7bWEn4BA.png"
+      "https://cdn-images-1.medium.com/max/1200/1*y6C4nSvy2Woe0m7bWEn4BA.png",
+    tags: ["tag1", "tag2", "tag3"]
+    //tags: []
   };
   //You can add css stuff here, but its better to use the one You use custom made
   styles = {
     fontSize: 30,
     fontWeight: "bold"
   };
+  //This is another function
+  renderTags() {
+    if (this.state.tags.length === 0) return <p>There are no tags!</p>;
+
+    return (
+      <ul>
+        {this.state.tags.map(tag => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    );
+  }
   render() {
     //You can highlight some methods and refractor it with ctrl+shift+r in vsstudio
     let classes = this.getBadgeClasses();
@@ -26,6 +40,18 @@ class Counter extends Component {
         </span>
         {/* it is optional to use style like this as well <span style={{fontSize: 15}}></span> */}
         <button className="btn btn-secondary btn-sm">Increment</button>
+        {/* Use the map method to use as a loop to get a list. Must include key value */}
+        <ul>
+          {this.state.tags.map(tag => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+        {/* Other method */}
+        <div>
+          <h1>This is using the renderTags</h1>
+          {this.state.tags.length === 0 && "Please create a new tag!"}
+          {this.renderTags()}
+        </div>
       </React.Fragment>
     );
   }
