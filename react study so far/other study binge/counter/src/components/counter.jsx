@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   //This is basically your global variable
   state = {
-    count: 0,
+    count: this.props.value,
     imageUrl:
       "https://cdn-images-1.medium.com/max/1200/1*y6C4nSvy2Woe0m7bWEn4BA.png",
     tags: ["tag1", "tag2", "tag3"]
@@ -41,19 +41,25 @@ class Counter extends Component {
     //You can highlight some methods and refractor it with ctrl+shift+r in vsstudio
     let classes = this.getBadgeClasses();
 
+    //showing how properties work
+    console.log('props', this.props);
+
     return (
+
       //React.Fragment is like Div, but allows the component inside to group within the destinated div
       //Using {} within the HTML code, u can call functions, prop or state within to get the value you want
       <React.Fragment>
+        {/* This is how you call children properties */}
+        {this.props.children}
         {/* <img src={this.state.imageUrl} alt="" /> */}
         <span style={this.styles} className={classes}>
           {this.formatCount()}
         </span>
+
         {/* it is optional to use style like this as well <span style={{fontSize: 15}}></span> */}
         <button
           onClick={() => this.handleIncrement(this.state.count)}
-          className="btn btn-secondary btn-sm"
-        >
+          className="btn btn-secondary btn-sm">
           Increment
         </button>
         {/* Use the map method to use as a loop to get a list. Must include key value */}
