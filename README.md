@@ -7,7 +7,7 @@ Other API will soon be determined.
 <br/>
 This projects will be developed by 
 <ul>
-  <li><a href="https://github.com/NickIsHere">Nick Constantine</a></li>
+  <li><a href="https://github.com/NickIsReady">Nick Constantine</a></li>
    <li><a href="https://github.com/mcn1349">Marcus Chan</a></li>
   <li><a href="https://github.com/Tony-Chau">Tony Chau</a></li>
 </ul>
