@@ -42,7 +42,7 @@ class Counter extends Component {
     let classes = this.getBadgeClasses();
 
     //showing how properties work
-    console.log('props', this.props);
+    //console.log('props', this.props);
 
     return (
 
@@ -62,6 +62,8 @@ class Counter extends Component {
           className="btn btn-secondary btn-sm">
           Increment
         </button>
+        <button onClick={() => this.props.onDelete(this.props.id)} className="btn btn-danger btn-sm m-2">Delete</button>
+
         {/* Use the map method to use as a loop to get a list. Must include key value */}
         <ul>
           {this.state.tags.map(tag => (
